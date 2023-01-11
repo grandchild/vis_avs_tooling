@@ -1,0 +1,105 @@
+[
+    {
+        "typename": "BOOL",
+        "config": [
+        {
+            "name": "name_false",
+            "type": "string"
+        },
+        {
+            "name": "name_true",
+            "type": "string"
+        }]
+    },
+
+
+    {
+        "typename": "INT",
+        "config": [
+        {
+            "name": "min",
+            "type": "number"
+        },
+        {
+            "name": "max",
+            "type": "number"
+        },
+        {
+            "name": "step",
+            "type": "number"
+        }]
+    },
+
+    {
+        "typename": "FLOAT",
+        "config": [
+        {
+            "name": "min",
+            "type": "number"
+        },
+        {
+            "name": "max",
+            "type": "number"
+        },
+        {
+            "name": "step",
+            "type": "number"
+        }]
+    },
+
+    {
+        "typename": "CHOICE",
+        "config": [
+        {
+            "name": "options",
+            "type": "array",
+            "subtype": "string"
+        },
+        {
+            "name": "default",
+            "type": "number"
+        }]
+    },
+
+
+
+    {
+        "typename": "STRING",
+        "config": [
+        {
+            "name": "min_length",
+            "type": "number"
+        },
+        {
+            "name": "max_length",
+            "type": "number"
+        }]
+    },
+    {
+        "typename": "BINARY",
+        "config": [
+        {
+            "name": "min_length",
+            "type": "number"
+        },
+        {
+            "name": "max_length",
+            "type": "number"
+        }]
+    },
+    {
+        "typename": "LIST",
+        "config": [
+        {
+            "name": "content_type",
+            "type": "object"
+        }]
+    },
+
+    {
+        "typename": "OBJECT"
+    },
+    {
+        "typename": "NULL"
+    }
+]

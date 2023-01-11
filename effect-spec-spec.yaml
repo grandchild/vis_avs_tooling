@@ -1,0 +1,110 @@
+# AVS effect spec spec.
+#
+# This is purely a reference document. It is not read or parsed by AVS in any way.
+#
+# An effect's parameter can have one of several types or be a collection of sub-
+# parameters. Each effect's parameters are specified in a JSON structure that follows a
+# "config, type, config, type, ..." JSON-object nesting cadence: The first level is the
+# parameter name as key, with its type as value. Most effects never nest deeper than
+# that:
+#
+#     {
+#         "enabled": "BOOL",
+#         "color": "COLOR",
+#     }
+#
+# But some effects' parameters have a repetitive and variable-length structure, which
+# requires nesting inside lists:
+#
+#    {
+#        "colors": {
+#            "LIST": {
+#                "max_length": 16,
+#                "content_type": "COLOR"
+#            }
+#        },
+#        "plumbuses": {
+#            "LIST" {
+#                "max_length": 10,
+#                "content_type": {
+#                    "OBJECT": {
+#                        "floob": {"INT": {"min": 1, "max": 64}},
+#                        "grumbo": "FLOAT"
+#                    }
+#                }
+#            }
+#        }
+#    }
+#
+# Effects could in theory have direct OBJECT-type parameters for grouping. But this is
+# usually unnecessary since parameters could simply be flattened into the parent object.
+#
+# Unless a config has "required" set to `true`, it is optional. `bool`-type configs if
+# omitted default to `false`.
+- typename: LIST
+  type: list
+  config:
+    - name: min_length
+      type: number
+    - name: max_length
+      type: number
+    - name: content_type
+      type: object
+      required: true
+- typename: OBJECT
+  type: object
+- typename: BOOL
+  type: bool
+  config:
+    - name: name_false
+      type: string
+    - name: name_true
+      type: string
+- typename: INT
+  type: int64
+  config:
+    - name: min
+      type: number
+    - name: max
+      type: number
+    - name: step
+      type: number
+- typename: FLOAT
+  type: float64
+  config:
+    - name: min
+      type: number
+    - name: max
+      type: number
+    - name: step
+      type: number
+- typename: COLOR
+  type: uint64
+  config:
+    - name: has_alpha
+      type: bool
+- typename: SELECT
+  type: int64
+  config:
+    - name: options
+      subtype: string
+      type: array
+      required: true
+    - name: default
+      type: number
+- typename: STRING
+  type: uint8*
+  config:
+    - name: min_length
+      type: number
+    - name: max_length
+      type: number
+# - typename: BINARY
+#   type: [int32, uint8*]
+#   config:
+#     - name: min_length
+#       type: number
+#     - name: max_length
+#       type: number
+- typename: 'NULL'
+  type: void

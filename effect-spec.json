@@ -1,0 +1,76 @@
+{
+    "Color Map": {
+        "key": {
+            "CHOICE": {
+                "options": ["Red", "Green", "Blue", "R+G+B)/3", "R+G+B)/2", "Maximum"],
+                "default": 0
+            }
+        },
+        "blendmode": {
+            "CHOICE": {
+                "options": [
+                    "Replace",
+                    "Additive",
+                    "Maximum",
+                    "Minimum",
+                    "50/50",
+                    "Subtractive1",
+                    "Subtractive2",
+                    "Multiply",
+                    "XOR",
+                    "Adjustable"
+                ],
+                "default": 0
+            }
+        },
+        "adjustable_blend": {"INT": {"min": 0, "max": 255}},
+        "dont_skip_fast_beats": "BOOL",
+        "cycle_speed": {"INT": {"min": 1, "max": 64}},
+        "maps": {
+            "LIST": {
+                "min_length": 8,
+                "max_length": 8,
+                "content_type": {
+                    "OBJECT": {
+                        "enabled": "BOOL",
+                        "file": {"STRING": {"max_length": 260}},
+                        "colors": {
+                            "LIST": {
+                                "min_length": 1,
+                                "max_length": 256,
+                                "content_type": {
+                                    "OBJECT": {
+                                        "color": "COLOR",
+                                        "position": {"INT": {"min": 0, "max": 255}}
+                                    }
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        }
+    },
+    "Framerate Limiter": {"enabled": "BOOL", "fps": {"INT": {"range": [1, 120]}}},
+    "Convolution Filter": {
+        "enabled": "BOOL",
+        "edge_mode": {"BOOL": {"name_false": "Extend", "name_true": "Wrap"}},
+        "absolute": "BOOL",
+        "two_pass": "BOOL",
+        "kernel": {
+            "OBJECT": {
+                "width": {"INT": {"min": 7, "max": 7}},
+                "height": {"INT": {"min": 7, "max": 7}},
+                "values": {
+                    "LIST": {
+                        "min_length": 49,
+                        "max_length": 49,
+                        "content_type": "INT"
+                    }
+                }
+            }
+        },
+        "bias": "INT",
+        "scale": "INT"
+    }
+}

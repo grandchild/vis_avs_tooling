@@ -1,0 +1,2466 @@
+[
+  {
+    "name": "Effect List",
+    "code": 4294967294,
+    "group": "",
+    "func": "effectList",
+    "fields": {
+      "enabled": "Bool",
+      "enabledOnBeat": "Bool",
+      "enabledOnBeatFrames": 4,
+      "clearEveryFrame": "Bool",
+      "inputBlendMode": "BlendmodeIn",
+      "outputBlendMode": "BlendmodeOut",
+      "inputBlendAdjustable": 4,
+      "outputBlendAdjustable": 4,
+      "inputBlendBuffer": "BufferNum",
+      "outputBlendBuffer": "BufferNum",
+      "inputBlendBufferInvert": "Bool",
+      "outputBlendBufferInvert": "Bool",
+      "useCode": "Bool",
+      "init": "SizeString",
+      "frame": "SizeString"
+    }
+  },
+  {
+    "name": "Simple",
+    "code": 0,
+    "group": "Render",
+    "func": "simple",
+    "fields": {
+      "audioSource": "AudioSource",
+      "drawMode": ["Map4", {"0": "LINES", "1": "SOLID", "2": "DOTS"}],
+      "audioChannel": "AudioChannel",
+      "position": ["Map4", {"0": "TOP", "1": "BOTTOM", "2": "CENTER"}],
+      "colors": "ColorList"
+    }
+  },
+  {
+    "name": "Dot Plane",
+    "code": 1,
+    "group": "Render",
+    "func": "generic",
+    "fields": {
+      "rotationSpeed": "Int32",
+      "colorTop": "Color",
+      "colorHigh": "Color",
+      "colorMid": "Color",
+      "colorLow": "Color",
+      "colorBottom": "Color",
+      "angle": "Int32",
+      "null0": 4
+    }
+  },
+  {
+    "name": "Oscilliscope Star",
+    "code": 2,
+    "group": "Render",
+    "func": "generic",
+    "fields": {
+      "audioChannel": [
+        "Bit",
+        [
+          2,
+          3
+        ],
+        "AudioChannel"
+      ],
+      "positionX": [
+        "Bit",
+        [
+          4,
+          5
+        ],
+        "PositionX"
+      ],
+      "null0": 3,
+      "colors": "ColorList",
+      "size": 4,
+      "rotation": 4
+    }
+  },
+  {
+    "name": "FadeOut",
+    "code": 3,
+    "group": "Trans",
+    "func": "generic",
+    "fields": {
+      "speed": 4,
+      "color": "Color"
+    }
+  },
+  {
+    "name": "Blitter Feedback",
+    "code": 4,
+    "group": "Trans",
+    "func": "generic",
+    "fields": {
+      "zoom": 4,
+      "onBeatZoom": 4,
+      "blendMode": [
+        "Map4",
+        {
+          "0": "REPLACE",
+          "1": "FIFTY_FIFTY"
+        }
+      ],
+      "onBeat": [
+        "Bool",
+        4
+      ],
+      "bilinear": [
+        "Bool",
+        4
+      ]
+    }
+  },
+  {
+    "name": "On Beat Clear",
+    "code": 5,
+    "group": "Render",
+    "func": "generic",
+    "fields": {
+      "color": "Color",
+      "blendMode": [
+        "Map4",
+        {
+          "0": "REPLACE",
+          "1": "FIFTY_FIFTY"
+        }
+      ],
+      "clearBeats": 4
+    }
+  },
+  {
+    "name": "Blur",
+    "code": 6,
+    "group": "Trans",
+    "func": "generic",
+    "fields": {
+      "blur": [
+        "Map4",
+        {
+          "0": "NONE",
+          "1": "MEDIUM",
+          "2": "LIGHT",
+          "3": "HEAVY"
+        }
+      ],
+      "round": [
+        "Map4",
+        {
+          "0": "DOWN",
+          "1": "UP"
+        }
+      ]
+    }
+  },
+  {
+    "name": "Bass Spin",
+    "code": 7,
+    "group": "Trans",
+    "func": "generic",
+    "fields": {
+      "enabledLeft": [
+        "Bit",
+        0,
+        "Boolified"
+      ],
+      "enabledRight": [
+        "Bit",
+        1,
+        "Boolified"
+      ],
+      "null0": 3,
+      "colorLeft": "Color",
+      "colorRight": "Color",
+      "mode": [
+        "Map4",
+        {
+          "0": "LINES",
+          "1": "TRIANGLES"
+        }
+      ]
+    }
+  },
+  {
+    "name": "Moving Particle",
+    "code": 8,
+    "group": "Render",
+    "func": "generic",
+    "fields": {
+      "enabled": [
+        "Bit",
+        0,
+        "Boolified"
+      ],
+      "onBeatSizeChange": [
+        "Bit",
+        1,
+        "Boolified"
+      ],
+      "null0": 3,
+      "color": "Color",
+      "distance": 4,
+      "particleSize": 4,
+      "onBeatParticleSize": 4,
+      "blendMode": [
+        "Map4",
+        {
+          "0": "REPLACE",
+          "1": "Additive",
+          "2": "FIFTY_FIFTY",
+          "3": "DEFAULT"
+        }
+      ]
+    }
+  },
+  {
+    "name": "Roto Blitter",
+    "code": 9,
+    "group": "Trans",
+    "func": "generic",
+    "fields": {
+      "zoom": 4,
+      "rotate": 4,
+      "blendMode": [
+        "Map4",
+        {
+          "0": "REPLACE",
+          "1": "FIFTY_FIFTY"
+        }
+      ],
+      "onBeatReverse": [
+        "Bool",
+        4
+      ],
+      "reversalSpeed": 4,
+      "onBeatZoom": 4,
+      "onBeat": [
+        "Bool",
+        4
+      ],
+      "bilinear": [
+        "Bool",
+        4
+      ]
+    }
+  },
+  {
+    "name": "SVP",
+    "code": 10,
+    "group": "Render",
+    "func": "generic",
+    "fields": {
+      "library": [
+        "SizeString",
+        260
+      ]
+    }
+  },
+  {
+    "name": "Colorfade",
+    "code": 11,
+    "group": "Trans",
+    "func": "generic",
+    "fields": {
+      "enabled": [
+        "Bit",
+        0,
+        "Boolified"
+      ],
+      "onBeat": [
+        "Bit",
+        2,
+        "Boolified"
+      ],
+      "onBeatRandom": [
+        "Bit",
+        1,
+        "Boolified"
+      ],
+      "null0": 3,
+      "fader1": "Int32",
+      "fader2": "Int32",
+      "fader3": "Int32",
+      "beatFader1": "Int32",
+      "beatFader2": "Int32",
+      "beatFader3": "Int32"
+    }
+  },
+  {
+    "name": "Color Clip",
+    "code": 12,
+    "group": "Trans",
+    "func": "generic",
+    "fields": {
+      "mode": [
+        "Map4",
+        {
+          "0": "OFF",
+          "1": "BELOW",
+          "2": "ABOVE",
+          "3": "NEAR"
+        }
+      ],
+      "color": "Color",
+      "outColor": "Color",
+      "level": 4
+    }
+  },
+  {
+    "name": "Rotating Stars",
+    "code": 13,
+    "group": "Render",
+    "func": "generic",
+    "fields": {
+      "colors": "ColorList"
+    }
+  },
+  {
+    "name": "Ring",
+    "code": 14,
+    "group": "Render",
+    "func": "generic",
+    "fields": {
+      "audioChannel": [
+        "Bit",
+        [
+          2,
+          3
+        ],
+        "AudioChannel"
+      ],
+      "positionX": [
+        "Bit",
+        [
+          4,
+          5
+        ],
+        "PositionX"
+      ],
+      "null0": 3,
+      "colors": "ColorList",
+      "size": 4,
+      "audioSource": [
+        "UInt32",
+        4,
+        "AudioSource"
+      ]
+    }
+  },
+  {
+    "name": "Movement",
+    "code": 15,
+    "group": "Trans",
+    "func": "movement",
+    "fields": {
+      "sourceMap": ["Map4", {"0": "OFF", "1": "ON", "2": "TOGGLE_ON_BEAT"}],
+      "wrap": "Bool",
+      "blend50/50": "Bool",
+      "bilinear": "Bool",
+      "coord": "Coordinates",
+      "code": "NtString",
+      "preset": "MovementEffectNames"
+    }
+  },
+  {
+    "name": "Scatter",
+    "code": 16,
+    "group": "Trans",
+    "func": "generic",
+    "fields": {
+      "enabled": [
+        "Bool",
+        4
+      ]
+    }
+  },
+  {
+    "name": "Dot Grid",
+    "code": 17,
+    "group": "Render",
+    "func": "generic",
+    "fields": {
+      "colors": "ColorList",
+      "spacing": 4,
+      "speedX": "Int32",
+      "speedY": "Int32",
+      "blendMode": [
+        "Map4",
+        {
+          "0": "REPLACE",
+          "1": "Additive",
+          "2": "FIFTY_FIFTY",
+          "3": "DEFAULT"
+        }
+      ]
+    }
+  },
+  {
+    "name": "Buffer Save",
+    "code": 18,
+    "group": "Misc",
+    "func": "generic",
+    "fields": {
+      "action": [
+        "BufferMode",
+        4
+      ],
+      "bufferId": [
+        "BufferNum",
+        4
+      ],
+      "blendMode": [
+        "BlendmodeBuffer",
+        4
+      ],
+      "adjustBlend": 4
+    }
+  },
+  {
+    "name": "Dot Fountain",
+    "code": 19,
+    "group": "Render",
+    "func": "generic",
+    "fields": {
+      "rotationSpeed": "Int32",
+      "colorTop": "Color",
+      "colorHigh": "Color",
+      "colorMid": "Color",
+      "colorLow": "Color",
+      "colorBottom": "Color",
+      "angle": "Int32",
+      "null0": 4
+    }
+  },
+  {
+    "name": "Water",
+    "code": 20,
+    "group": "Trans",
+    "func": "generic",
+    "fields": {
+      "enabled": [
+        "Bool",
+        4
+      ]
+    }
+  },
+  {
+    "name": "Comment",
+    "code": 21,
+    "group": "Misc",
+    "func": "generic",
+    "fields": {
+      "text": "SizeString"
+    }
+  },
+  {
+    "name": "Brightness",
+    "code": 22,
+    "group": "Trans",
+    "func": "generic",
+    "fields": {
+      "enabled": [
+        "Bool",
+        4
+      ],
+      "blendMode": [
+        "Map8",
+        {
+          "0": "REPLACE",
+          "1": "ADDITIVE",
+          "4294967296": "FIFTY_FIFTY"
+        }
+      ],
+      "red": "Int32",
+      "green": "Int32",
+      "blue": "Int32",
+      "separate": [
+        "Bool",
+        4
+      ],
+      "excludeColor": "Color",
+      "exclude": [
+        "Bool",
+        4
+      ],
+      "distance": 4
+    }
+  },
+  {
+    "name": "Interleave",
+    "code": 23,
+    "group": "Trans",
+    "func": "generic",
+    "fields": {
+      "enabled": [
+        "Bool",
+        4
+      ],
+      "x": 4,
+      "y": 4,
+      "color": "Color",
+      "blendMode": [
+        "Map8",
+        {
+          "0": "REPLACE",
+          "1": "ADDITIVE",
+          "4294967296": "FIFTY_FIFTY"
+        }
+      ],
+      "onbeat": [
+        "Bool",
+        4
+      ],
+      "x2": 4,
+      "y2": 4,
+      "beatDuration": 4
+    }
+  },
+  {
+    "name": "Grain",
+    "code": 24,
+    "group": "Trans",
+    "func": "generic",
+    "fields": {
+      "enabled": [
+        "Bool",
+        4
+      ],
+      "blendMode": [
+        "Map8",
+        {
+          "0": "REPLACE",
+          "1": "ADDITIVE",
+          "4294967296": "FIFTY_FIFTY"
+        }
+      ],
+      "amount": 4,
+      "static": [
+        "Bool",
+        4
+      ]
+    }
+  },
+  {
+    "name": "Clear Screen",
+    "code": 25,
+    "group": "Render",
+    "func": "generic",
+    "fields": {
+      "enabled": [
+        "Bool",
+        4
+      ],
+      "color": "Color",
+      "blendMode": [
+        "Map8",
+        {
+          "0": "REPLACE",
+          "1": "ADDITIVE",
+          "2": "DEFAULT",
+          "4294967296": "FIFTY_FIFTY"
+        }
+      ],
+      "onlyFirst": [
+        "Bool",
+        4
+      ]
+    }
+  },
+  {
+    "name": "Mirror",
+    "code": 26,
+    "group": "Trans",
+    "func": "generic",
+    "fields": {
+      "enabled": [
+        "Bool",
+        4
+      ],
+      "topToBottom": [
+        "Bit",
+        0,
+        "Boolified"
+      ],
+      "bottomToTop": [
+        "Bit",
+        1,
+        "Boolified"
+      ],
+      "leftToRight": [
+        "Bit",
+        2,
+        "Boolified"
+      ],
+      "rightToLeft": [
+        "Bit",
+        3,
+        "Boolified"
+      ],
+      "null0": 3,
+      "onBeatRandom": [
+        "Bool",
+        4
+      ],
+      "smoothTransition": [
+        "Bool",
+        4
+      ],
+      "transitionDuration": 4
+    }
+  },
+  {
+    "name": "Starfield",
+    "code": 27,
+    "group": "Render",
+    "func": "generic",
+    "fields": {
+      "enabled": 4,
+      "color": "Color",
+      "blendMode": [
+        "Map8",
+        {
+          "0": "REPLACE",
+          "1": "ADDITIVE",
+          "4294967296": "FIFTY_FIFTY"
+        }
+      ],
+      "WarpSpeed": "Float",
+      "MaxStars_set": 4,
+      "onbeat": 4,
+      "spdBeat": "Float",
+      "durFrames": 4
+    }
+  },
+  {
+    "name": "Text",
+    "code": 28,
+    "group": "Render",
+    "func": "generic",
+    "fields": {
+      "enabled": [
+        "Bool",
+        4
+      ],
+      "color": "Color",
+      "blendMode": [
+        "Map8",
+        {
+          "0": "REPLACE",
+          "1": "ADDITIVE",
+          "4294967296": "FIFTY_FIFTY"
+        }
+      ],
+      "onBeat": [
+        "Bool",
+        4
+      ],
+      "insertBlanks": [
+        "Bool",
+        4
+      ],
+      "randomPosition": [
+        "Bool",
+        4
+      ],
+      "verticalAlign": [
+        "Map4",
+        {
+          "0": "TOP",
+          "4": "CENTER",
+          "8": "BOTTOM"
+        }
+      ],
+      "horizontalAlign": [
+        "Map4",
+        {
+          "0": "LEFT",
+          "1": "CENTER",
+          "2": "RIGHT"
+        }
+      ],
+      "onBeatSpeed": 4,
+      "normSpeed": 4,
+      "null0": 60,
+      "null1": 16,
+      "weight": [
+        "Map4",
+        {
+          "0": "DONTCARE",
+          "100": "THIN",
+          "200": "EXTRALIGHT",
+          "300": "LIGHT",
+          "400": "REGULAR",
+          "500": "MEDIUM",
+          "600": "SEMIBOLD",
+          "700": "BOLD",
+          "800": "EXTRABOLD",
+          "900": "BLACK"
+        }
+      ],
+      "italic": [
+        "Bool",
+        1
+      ],
+      "underline": [
+        "Bool",
+        1
+      ],
+      "strikeOut": [
+        "Bool",
+        1
+      ],
+      "charSet": 1,
+      "null2": 4,
+      "fontName": [
+        "SizeString",
+        32
+      ],
+      "text": [
+        "SizeString",
+        0,
+        "SemiColSplit"
+      ],
+      "outline": [
+        "Bool",
+        4
+      ],
+      "outlineColor": "Color",
+      "shiftX": 4,
+      "shiftY": 4,
+      "outlineShadowSize": 4,
+      "randomWord": [
+        "Bool",
+        4
+      ],
+      "shadow": [
+        "Bool",
+        4
+      ]
+    }
+  },
+  {
+    "name": "Bump",
+    "code": 29,
+    "group": "Trans",
+    "func": "generic",
+    "fields": {
+      "enabled": [
+        "Bool",
+        4
+      ],
+      "onBeat": [
+        "Bool",
+        4
+      ],
+      "duration": 4,
+      "depth": 4,
+      "onBeatDepth": 4,
+      "blendMode": [
+        "Map8",
+        {
+          "0": "REPLACE",
+          "1": "ADDITIVE",
+          "4294967296": "FIFTY_FIFTY"
+        }
+      ],
+      "code": "CodeFBI",
+      "showDot": [
+        "Bool",
+        4
+      ],
+      "invertDepth": [
+        "Bool",
+        4
+      ],
+      "null0": 4,
+      "depthBuffer": [
+        "BufferNum",
+        4
+      ]
+    }
+  },
+  {
+    "name": "Mosaic",
+    "code": 30,
+    "group": "Trans",
+    "func": "generic",
+    "fields": {
+      "enabled": [
+        "Bool",
+        4
+      ],
+      "squareSize": 4,
+      "onBeatSquareSize": 4,
+      "blendMode": [
+        "Map8",
+        {
+          "0": "REPLACE",
+          "1": "ADDITIVE",
+          "4294967296": "FIFTY_FIFTY"
+        }
+      ],
+      "onBeatSizeChange": [
+        "Bool",
+        4
+      ],
+      "onBeatSizeDuration": 4
+    }
+  },
+  {
+    "name": "Water Bump",
+    "code": 31,
+    "group": "Trans",
+    "func": "generic",
+    "fields": {
+      "enabled": [
+        "Bool",
+        4
+      ],
+      "density": 4,
+      "depth": 4,
+      "random": [
+        "Bool",
+        4
+      ],
+      "dropPositionX": 4,
+      "dropPositionY": 4,
+      "dropRadius": 4,
+      "method": 4
+    }
+  },
+  {
+    "name": "AVI",
+    "code": 32,
+    "group": "Trans",
+    "func": "avi",
+    "fields": {
+      "enabled": [
+        "Bool",
+        4
+      ],
+      "filename": "NtString",
+      "blendMode": [
+        "Map4",
+        {
+          "0": "REPLACE",
+          "1": "ADDITIVE",
+          "2": "FIFTY_FIFTY",
+          "3": "FIFTY_FIFTY_ON_BEAT_ADDITIVE"
+        }
+      ],
+      "onBeatPersistance": 4,
+      "playbackSpeed": 4
+    }
+  },
+  {
+    "name": "Custom BPM",
+    "code": 33,
+    "group": "Misc",
+    "func": "generic",
+    "fields": {
+      "enabled": [
+        "Bool",
+        4
+      ],
+      "mode": [
+        "RadioButton",
+        {
+          "0": "ARBITRARY",
+          "1": "SKIP",
+          "2": "REVERSE"
+        }
+      ],
+      "arbitraryValue": 4,
+      "skipValue": 4,
+      "skipFirstBeats": 4
+    }
+  },
+  {
+    "name": "Picture",
+    "code": 34,
+    "group": "Render",
+    "func": "generic",
+    "fields": {
+      "enabled": [
+        "Bool",
+        4
+      ],
+      "blendMode": [
+        "Map8",
+        {
+          "0": "REPLACE",
+          "1": "ADDITIVE",
+          "4294967296": "FIFTY_FIFTY"
+        }
+      ],
+      "adapt": 4,
+      "onBeatPersist": 4,
+      "file": "NtString",
+      "ratio": 4,
+      "aspectRatioAxis": [
+        "Map4",
+        {
+          "0": "X",
+          "1": "Y"
+        }
+      ]
+    }
+  },
+  {
+    "name": "Dynamic Distance Modifier",
+    "code": 35,
+    "group": "Trans",
+    "func": "versioned_generic",
+    "fields": {
+      "new_version": [
+        "Bool",
+        1
+      ],
+      "code": "CodePFBI",
+      "blendMode": [
+        "Map4",
+        {
+          "0": "REPLACE",
+          "1": "FIFTY_FIFTY"
+        }
+      ],
+      "bilinear": [
+        "Bool",
+        4
+      ]
+    }
+  },
+  {
+    "name": "Super Scope",
+    "code": 36,
+    "group": "Render",
+    "func": "versioned_generic",
+    "fields": {
+      "new_version": [
+        "Bool",
+        1
+      ],
+      "code": "CodePFBI",
+      "audioChannel": [
+        "Bit",
+        [
+          0,
+          1
+        ],
+        "AudioChannel"
+      ],
+      "audioSource": [
+        "Bit",
+        2,
+        "AudioSource"
+      ],
+      "null0": 3,
+      "colors": "ColorList",
+      "drawMode": [
+        "DrawMode",
+        4
+      ]
+    }
+  },
+  {
+    "name": "Invert",
+    "code": 37,
+    "group": "Trans",
+    "func": "generic",
+    "fields": {
+      "enabled": [
+        "Bool",
+        4
+      ]
+    }
+  },
+  {
+    "name": "Unique Tone",
+    "code": 38,
+    "group": "Trans",
+    "func": "generic",
+    "fields": {
+      "enabled": [
+        "Bool",
+        4
+      ],
+      "color": "Color",
+      "blendMode": [
+        "Map8",
+        {
+          "0": "REPLACE",
+          "1": "ADDITIVE",
+          "4294967296": "FIFTY_FIFTY"
+        }
+      ],
+      "invert": [
+        "Bool",
+        4
+      ]
+    }
+  },
+  {
+    "name": "Timescope",
+    "code": 39,
+    "group": "Render",
+    "func": "generic",
+    "fields": {
+      "enabled": [
+        "Bool",
+        4
+      ],
+      "color": "Color",
+      "blendMode": [
+        "Map8",
+        {
+          "0": "REPLACE",
+          "1": "ADDITIVE",
+          "2": "DEFAULT",
+          "4294967296": "FIFTY_FIFTY"
+        }
+      ],
+      "audioChannel": [
+        "UInt32",
+        4,
+        "AudioChannel"
+      ],
+      "bands": 4
+    }
+  },
+  {
+    "name": "Set Render Mode",
+    "code": 40,
+    "group": "Misc",
+    "func": "generic",
+    "fields": {
+      "blend": [
+        "BlendmodeRender",
+        1
+      ],
+      "adjustBlend": 1,
+      "lineSize": 1,
+      "enabled": [
+        "Bit",
+        7,
+        "Boolified"
+      ]
+    }
+  },
+  {
+    "name": "Interferences",
+    "code": 41,
+    "group": "Trans",
+    "func": "generic",
+    "fields": {
+      "enabled": [
+        "Bool",
+        4
+      ],
+      "numberOfLayers": 4,
+      "null0": 4,
+      "distance": 4,
+      "alpha": 4,
+      "rotation": "Int32",
+      "blendMode": [
+        "Map8",
+        {
+          "0": "REPLACE",
+          "1": "ADDITIVE",
+          "4294967296": "FIFTY_FIFTY"
+        }
+      ],
+      "onBeatDistance": 4,
+      "onBeatAlpha": 4,
+      "onBeatRotation": 4,
+      "separateRGB": [
+        "Bool",
+        4
+      ],
+      "onBeat": [
+        "Bool",
+        4
+      ],
+      "speed": "Float"
+    }
+  },
+  {
+    "name": "Dynamic Shift",
+    "code": 42,
+    "group": "Trans",
+    "func": "versioned_generic",
+    "fields": {
+      "new_version": [
+        "Bool",
+        1
+      ],
+      "code": "CodeIFB",
+      "blendMode": [
+        "Map4",
+        {
+          "0": "Replace",
+          "1": "FIFTY_FIFTY"
+        }
+      ],
+      "bilinear": [
+        "Bool",
+        4
+      ]
+    }
+  },
+  {
+    "name": "Dynamic Movement",
+    "code": 43,
+    "group": "Trans",
+    "func": "versioned_generic",
+    "fields": {
+      "new_version": [
+        "Bool",
+        1
+      ],
+      "code": "CodePFBI",
+      "bilinear": [
+        "Bool",
+        4
+      ],
+      "coord": [
+        "Coordinates",
+        4
+      ],
+      "gridW": 4,
+      "gridH": 4,
+      "blend": [
+        "Bool",
+        4
+      ],
+      "wrap": [
+        "Bool",
+        4
+      ],
+      "buffer": [
+        "BufferNum",
+        4
+      ],
+      "alphaOnly": [
+        "Bool",
+        4
+      ]
+    }
+  },
+  {
+    "name": "Fast Brightness",
+    "code": 44,
+    "group": "Trans",
+    "func": "generic",
+    "fields": {
+      "factor": [
+        "Map4",
+        {
+          "0": 2,
+          "1": 0.5,
+          "2": 1
+        }
+      ]
+    }
+  },
+  {
+    "name": "Color Modifier",
+    "code": 45,
+    "group": "Trans",
+    "func": "versioned_generic",
+    "fields": {
+      "code": "CodePFBI",
+      "recomputeEveryFrame": ["Bool", 4]
+    }
+  },
+  {
+    "name": "AVS Trans Automation",
+    "code": [
+      77,
+      105,
+      115,
+      99,
+      58,
+      32,
+      65,
+      86,
+      83,
+      84,
+      114,
+      97,
+      110,
+      115,
+      32,
+      65,
+      117,
+      116,
+      111,
+      109,
+      97,
+      116,
+      105,
+      111,
+      110,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0
+    ],
+    "group": "Misc",
+    "func": "generic",
+    "fields": {
+      "enabled": [
+        "Bool",
+        4
+      ],
+      "logging": [
+        "Bool",
+        4
+      ],
+      "translateFirstLevel": [
+        "Bool",
+        4
+      ],
+      "readCommentCodes": [
+        "Bool",
+        4
+      ],
+      "code": "NtString"
+    }
+  },
+  {
+    "name": "Texer",
+    "code": [
+      84,
+      101,
+      120,
+      101,
+      114,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0
+    ],
+    "group": "Trans",
+    "func": "generic",
+    "fields": {
+      "null0": 16,
+      "image": [
+        "SizeString",
+        260
+      ],
+      "input": [
+        "Bit",
+        0,
+        "BlendmodeIn"
+      ],
+      "blendMode": [
+        "Bit",
+        2,
+        "BlendmodeTexer"
+      ],
+      "null1": 3,
+      "particles": 4,
+      "null2": 4
+    }
+  },
+  {
+    "name": "Texer II",
+    "code": [
+      65,
+      99,
+      107,
+      111,
+      46,
+      110,
+      101,
+      116,
+      58,
+      32,
+      84,
+      101,
+      120,
+      101,
+      114,
+      32,
+      73,
+      73,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0
+    ],
+    "group": "Render",
+    "func": "generic",
+    "fields": {
+      "null0": 4,
+      "imageSrc": [
+        "SizeString",
+        260
+      ],
+      "resizing": [
+        "Bool",
+        4
+      ],
+      "wrapAround": [
+        "Bool",
+        4
+      ],
+      "colorFiltering": [
+        "Bool",
+        4
+      ],
+      "null1": 4,
+      "code": "CodeIFBP"
+    }
+  },
+  {
+    "name": "Color Map",
+    "code": [
+      67,
+      111,
+      108,
+      111,
+      114,
+      32,
+      77,
+      97,
+      112,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0
+    ],
+    "group": "Trans",
+    "func": "generic",
+    "fields": {
+      "key": [
+        "ColorMapKey",
+        4
+      ],
+      "blendMode": [
+        "BlendmodeColorMap",
+        4
+      ],
+      "mapCycleMode": [
+        "ColorMapCycleMode",
+        4
+      ],
+      "adjustBlend": 1,
+      "null0": 1,
+      "dontSkipFastBeats": [
+        "Bool",
+        1
+      ],
+      "cycleSpeed": 1,
+      "maps": "ColorMaps"
+    }
+  },
+  {
+    "name": "Framerate Limiter",
+    "code": [
+      86,
+      70,
+      88,
+      32,
+      70,
+      82,
+      65,
+      77,
+      69,
+      82,
+      65,
+      84,
+      69,
+      32,
+      76,
+      73,
+      77,
+      73,
+      84,
+      69,
+      82,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0
+    ],
+    "group": "Misc",
+    "func": "generic",
+    "fields": {
+      "enabled": [
+        "Bool",
+        4
+      ],
+      "limit": 4
+    }
+  },
+  {
+    "name": "Convolution Filter",
+    "code": [
+      72,
+      111,
+      108,
+      100,
+      101,
+      110,
+      48,
+      51,
+      58,
+      32,
+      67,
+      111,
+      110,
+      118,
+      111,
+      108,
+      117,
+      116,
+      105,
+      111,
+      110,
+      32,
+      70,
+      105,
+      108,
+      116,
+      101,
+      114,
+      0,
+      0,
+      0,
+      0
+    ],
+    "group": "Trans",
+    "func": "generic",
+    "fields": {
+      "enabled": [
+        "Bool",
+        4
+      ],
+      "edgeMode": [
+        "ConvolutionEdgeMode",
+        4
+      ],
+      "absolute": [
+        "Bool",
+        4
+      ],
+      "twoPass": [
+        "Bool",
+        4
+      ],
+      "kernel": [
+        "ConvoFilter",
+        [
+          7,
+          7
+        ]
+      ],
+      "bias": "Int32",
+      "scale": "Int32"
+    }
+  },
+  {
+    "name": "Triangle",
+    "code": [
+      82,
+      101,
+      110,
+      100,
+      101,
+      114,
+      58,
+      32,
+      84,
+      114,
+      105,
+      97,
+      110,
+      103,
+      108,
+      101,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0
+    ],
+    "group": "Render",
+    "func": "generic",
+    "fields": {
+      "code": "NtCodeIFBP"
+    }
+  },
+  {
+    "name": "Channel Shift",
+    "code": [
+      67,
+      104,
+      97,
+      110,
+      110,
+      101,
+      108,
+      32,
+      83,
+      104,
+      105,
+      102,
+      116,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0
+    ],
+    "group": "Trans",
+    "func": "generic",
+    "fields": {
+      "mode": [
+        "Map4",
+        {
+          "0": "RGB",
+          "1018": "GBR",
+          "1019": "BRG",
+          "1020": "RBG",
+          "1021": "BGR",
+          "1022": "GRB",
+          "1023": "RGB",
+          "1144": "RGB",
+          "1183": "RGB"
+        }
+      ],
+      "onBeatRandom": [
+        "Bool",
+        4
+      ]
+    }
+  },
+  {
+    "name": "Normalise",
+    "code": [
+      84,
+      114,
+      97,
+      110,
+      115,
+      58,
+      32,
+      78,
+      111,
+      114,
+      109,
+      97,
+      108,
+      105,
+      115,
+      101,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0
+    ],
+    "group": "Trans",
+    "func": "generic",
+    "fields": {
+      "enabled": [
+        "Bool",
+        4
+      ]
+    }
+  },
+  {
+    "name": "Video Delay",
+    "code": [
+      72,
+      111,
+      108,
+      100,
+      101,
+      110,
+      48,
+      52,
+      58,
+      32,
+      86,
+      105,
+      100,
+      101,
+      111,
+      32,
+      68,
+      101,
+      108,
+      97,
+      121,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0
+    ],
+    "group": "Trans",
+    "func": "generic",
+    "fields": {
+      "enabled": [
+        "Bool",
+        4
+      ],
+      "useBeats": [
+        "Bool",
+        4
+      ],
+      "delay": 4
+    }
+  },
+  {
+    "name": "Multiplier",
+    "code": [
+      77,
+      117,
+      108,
+      116,
+      105,
+      112,
+      108,
+      105,
+      101,
+      114,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0
+    ],
+    "group": "Trans",
+    "func": "generic",
+    "fields": {
+      "multiply": [
+        "Map4",
+        {
+          "0": "INFINITE_ROOT",
+          "1": 8,
+          "2": 4,
+          "3": 2,
+          "4": 0.5,
+          "5": 0.25,
+          "6": 0.125,
+          "7": "INFINITE_SQUARE"
+        }
+      ]
+    }
+  },
+  {
+    "name": "Color Reduction",
+    "code": [
+      67,
+      111,
+      108,
+      111,
+      114,
+      32,
+      82,
+      101,
+      100,
+      117,
+      99,
+      116,
+      105,
+      111,
+      110,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0
+    ],
+    "group": "Trans",
+    "func": "generic",
+    "fields": {
+      "null0": 260,
+      "colors": [
+        "Map4",
+        {
+          "1": 2,
+          "2": 4,
+          "3": 8,
+          "4": 16,
+          "5": 32,
+          "6": 64,
+          "7": 128,
+          "8": 256
+        }
+      ]
+    }
+  },
+  {
+    "name": "Multi Delay",
+    "code": [
+      72,
+      111,
+      108,
+      100,
+      101,
+      110,
+      48,
+      53,
+      58,
+      32,
+      77,
+      117,
+      108,
+      116,
+      105,
+      32,
+      68,
+      101,
+      108,
+      97,
+      121,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0
+    ],
+    "group": "Trans",
+    "func": "generic",
+    "fields": {
+      "mode": [
+        "Map4",
+        {
+          "0": "DISABLED",
+          "1": "INPUT",
+          "2": "OUTPUT"
+        }
+      ],
+      "activeBuffer": 4,
+      "useBeats0": [
+        "Bool",
+        4
+      ],
+      "delay0": 4,
+      "useBeats1": [
+        "Bool",
+        4
+      ],
+      "delay1": 4,
+      "useBeats2": [
+        "Bool",
+        4
+      ],
+      "delay2": 4,
+      "useBeats3": [
+        "Bool",
+        4
+      ],
+      "delay3": 4,
+      "useBeats4": [
+        "Bool",
+        4
+      ],
+      "delay4": 4,
+      "useBeats5": [
+        "Bool",
+        4
+      ],
+      "delay5": 4
+    }
+  },
+  {
+    "name": "Buffer Blend",
+    "code": [
+      77,
+      105,
+      115,
+      99,
+      58,
+      32,
+      66,
+      117,
+      102,
+      102,
+      101,
+      114,
+      32,
+      98,
+      108,
+      101,
+      110,
+      100,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0
+    ],
+    "group": "Trans",
+    "func": "generic",
+    "fields": {
+      "enabled": [
+        "Bool",
+        4
+      ],
+      "bufferB": [
+        "BufferBlendBuffer",
+        4
+      ],
+      "bufferA": [
+        "BufferBlendBuffer",
+        4
+      ],
+      "mode": [
+        "BufferBlendMode",
+        4
+      ]
+    }
+  },
+  {
+    "name": "MIDI Trace",
+    "code": [
+      78,
+      117,
+      108,
+      108,
+      115,
+      111,
+      102,
+      116,
+      32,
+      80,
+      105,
+      120,
+      101,
+      108,
+      99,
+      111,
+      114,
+      112,
+      115,
+      58,
+      32,
+      77,
+      73,
+      68,
+      73,
+      116,
+      114,
+      97,
+      99,
+      101,
+      32,
+      0
+    ],
+    "group": "Misc",
+    "func": "generic",
+    "fields": {
+      "enabled": [
+        "Bool",
+        4
+      ],
+      "channel": 4,
+      "mode": [
+        "Map4",
+        {
+          "1": "CURRENT",
+          "2": "TRIGGER"
+        }
+      ],
+      "allChannels": [
+        "Bool",
+        4
+      ],
+      "printEvents": [
+        "Bool",
+        4
+      ]
+    }
+  },
+  {
+    "name": "Add Borders",
+    "code": [
+      86,
+      105,
+      114,
+      116,
+      117,
+      97,
+      108,
+      32,
+      69,
+      102,
+      102,
+      101,
+      99,
+      116,
+      58,
+      32,
+      65,
+      100,
+      100,
+      98,
+      111,
+      114,
+      100,
+      101,
+      114,
+      115,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0
+    ],
+    "group": "Render",
+    "func": "generic",
+    "fields": {
+      "enabled": [
+        "Bool",
+        4
+      ],
+      "color": "Color",
+      "size": 4
+    }
+  },
+  {
+    "name": "AVI Player",
+    "code": [
+      86,
+      70,
+      88,
+      32,
+      65,
+      86,
+      73,
+      32,
+      80,
+      76,
+      65,
+      89,
+      69,
+      82,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0
+    ],
+    "group": "Render",
+    "func": "generic",
+    "fields": {
+      "filePath": [
+        "SizeString",
+        256
+      ],
+      "enabled": [
+        "Bool",
+        4
+      ]
+    }
+  },
+  {
+    "name": "FyrewurX",
+    "code": [
+      70,
+      117,
+      110,
+      107,
+      121,
+      70,
+      88,
+      32,
+      70,
+      121,
+      114,
+      101,
+      119,
+      117,
+      114,
+      88,
+      32,
+      118,
+      49,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0
+    ],
+    "group": "Render",
+    "func": "generic",
+    "fields": {
+      "enabled": [
+        "Bool",
+        4
+      ]
+    }
+  },
+  {
+    "name": "Global Variables",
+    "code": [
+      74,
+      104,
+      101,
+      114,
+      105,
+      107,
+      111,
+      58,
+      32,
+      71,
+      108,
+      111,
+      98,
+      97,
+      108,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0
+    ],
+    "group": "Misc",
+    "func": "generic",
+    "fields": {
+      "load": [
+        "Map4",
+        {
+          "0": "NONE",
+          "1": "ONCE",
+          "2": "CODE_CONTROL",
+          "3": "EVERY_FRAME"
+        }
+      ],
+      "null0": 24,
+      "code": "NtCodeIFB",
+      "file": "NtString",
+      "saveRegRange": "NtString",
+      "saveBufRange": "NtString"
+    }
+  },
+  {
+    "name": "Fluid",
+    "code": [
+      71,
+      101,
+      105,
+      115,
+      115,
+      70,
+      108,
+      117,
+      105,
+      100,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0
+    ],
+    "group": "Render",
+    "func": "generic",
+    "fields": {
+      "null0": 4
+    }
+  },
+  {
+    "name": "Picture II",
+    "code": [
+      80,
+      105,
+      99,
+      116,
+      117,
+      114,
+      101,
+      32,
+      73,
+      73,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0
+    ],
+    "group": "Render",
+    "func": "generic",
+    "fields": {
+      "image": [
+        "NtString",
+        260
+      ],
+      "blendMode": [
+        "BlendmodePicture2",
+        4
+      ],
+      "onBeatOutput": [
+        "BlendmodePicture2",
+        4
+      ],
+      "bilinear": [
+        "Bool",
+        4
+      ],
+      "onBeatBilinear": [
+        "Bool",
+        4
+      ],
+      "adjustBlend": 4,
+      "onBeatAdjustBlend": 4
+    }
+  },
+  {
+    "name": "Multi Filter",
+    "code": [
+      74,
+      104,
+      101,
+      114,
+      105,
+      107,
+      111,
+      32,
+      58,
+      32,
+      77,
+      85,
+      76,
+      84,
+      73,
+      70,
+      73,
+      76,
+      84,
+      69,
+      82,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0
+    ],
+    "group": "Trans",
+    "func": "generic",
+    "fields": {
+      "enabled": [
+        "Bool",
+        4
+      ],
+      "effect": [
+        "MultiFilterEffect",
+        4
+      ],
+      "onBeat": [
+        "Bool",
+        4
+      ],
+      "null0": [
+        "Bool",
+        4
+      ]
+    }
+  },
+  {
+    "name": "Particle System",
+    "code": [
+      80,
+      97,
+      114,
+      116,
+      105,
+      99,
+      108,
+      101,
+      83,
+      121,
+      115,
+      116,
+      101,
+      109,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0
+    ],
+    "group": "Render",
+    "func": "generic",
+    "fields": {
+      "enabled": [
+        "Bool",
+        1
+      ],
+      "bigParticles": [
+        "Bool",
+        1
+      ],
+      "null0": 2,
+      "particles": 4,
+      "particles+/-": 4,
+      "lifetime": 4,
+      "lifetime+/-": 4,
+      "null1": 32,
+      "spread": "Float",
+      "initialSpeed": "Float",
+      "initialSpeed+/-": "Float",
+      "acceleration": "Float",
+      "accelerationType": [
+        "ParticleSystemAccelerationType",
+        4
+      ],
+      "color": "Color",
+      "color+/-": "Color",
+      "colorChange3": 1,
+      "colorChange2": 1,
+      "colorChange1": 1,
+      "null2": 1,
+      "colorChange+/-3": 1,
+      "colorChange+/-2": 1,
+      "colorChange+/-1": 1,
+      "null3": 1,
+      "colorBounce": [
+        "ParticleSystemColorBounce",
+        4
+      ]
+    }
+  }
+]
