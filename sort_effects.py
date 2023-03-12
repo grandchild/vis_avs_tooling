@@ -130,6 +130,8 @@ def main(output="default"):
                 + f" ({param_count})"
             )
         else:
+            if output == "todo" and port_status in [PortStatus.DONE, PortStatus.NEVER]:
+                continue
             print(
                 PortStatus.prefix(port_status),
                 "</>" if has_code else "   ",
@@ -148,7 +150,7 @@ def main(output="default"):
 
 
 if __name__ == "__main__":
-    if len(sys.argv) > 1 and sys.argv[1] == "markdown":
-        main(output="markdown")
+    if len(sys.argv) > 1 and sys.argv[1] in ["markdown", "todo"]:
+        main(output=sys.argv[1])
     else:
         main()
