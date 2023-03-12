@@ -66,7 +66,7 @@ def check_ported(name) -> PortStatus:
         "MIDI Trace",
     ]:
         return PortStatus.NEVER
-    cmd = f"rg -il 'name = \"{name.replace(' ', '.?')}\"'"
+    cmd = f"grep -Eril 'name = \"{name.replace(' ', '.?')}\"'"
     search_path = "../vis_avs/avs/vis_avs"
     out = subprocess.run(
         cmd, cwd=search_path, shell=True, capture_output=True
