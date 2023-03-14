@@ -52,7 +52,7 @@
     }
   },
   {
-    "name": "Oscilliscope Star",
+    "name": "Oscilloscope Star",
     "code": 2,
     "group": "Render",
     "func": "generic",
