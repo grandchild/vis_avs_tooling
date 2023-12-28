@@ -46,16 +46,12 @@ DEPS = [
         ["https://raw.githubusercontent.com/nothings/stb/master/stb_image.h"],
     ),
     Dependency(
-        "parson",
+        "json.hpp",
+        [THIRDPARTY_DIR / "json.h"],
         [
-            THIRDPARTY_DIR / "parson.h",
-            THIRDPARTY_DIR / "parson.c",
+            "https://raw.githubusercontent.com/nlohmann/json/master/single_include/nlohmann/json.hpp"
         ],
-        [
-            "https://raw.githubusercontent.com/kgabis/parson/master/parson.h",
-            "https://raw.githubusercontent.com/kgabis/parson/master/parson.c",
-        ],
-    ),
+    )
 ]
 
 
@@ -64,7 +60,7 @@ def check_dependencies(quiet: bool = False) -> Iterator[Dependency]:
         dep.updates = []
         for local_file, remote_file in zip(dep.local_files, dep.remote_files):
             if not quiet:
-                print(f"Checking {local_file.name} from {remote_file}...")
+                print(f"Checking {local_file.name} from {remote_file}")
             response = requests.get(remote_file)
             if response.status_code != 200:
                 print(
@@ -97,8 +93,8 @@ def check_dependencies(quiet: bool = False) -> Iterator[Dependency]:
                         print(diff_str)
                     print(f"{local_file}: +{additions} / -{deletions}")
                 dep.updates.append(Update(local_file, remote_content))
-        yield dep
-    return
+        if dep.updates:
+            yield dep
 
 
 def do_update(dependency):
