@@ -77,13 +77,13 @@ def check_dependencies(quiet: bool = False) -> Iterator[Dependency]:
                 show_diff = False
             diff = list(
                 unified_diff(
-                    local_content.splitlines(),
-                    remote_content.splitlines(),
+                    local_content.splitlines(keepends=True),
+                    remote_content.splitlines(keepends=True),
                     fromfile=str(local_file),
                     tofile=remote_file,
                 )
             )
-            diff_str = "\n".join(diff)
+            diff_str = "".join(diff)
             # -1 because the first two lines contain the file names
             additions = sum(line.startswith("+") for line in diff) - 1
             deletions = sum(line.startswith("-") for line in diff) - 1
