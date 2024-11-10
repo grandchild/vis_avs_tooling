@@ -51,7 +51,20 @@ DEPS = [
         [
             "https://raw.githubusercontent.com/nlohmann/json/master/single_include/nlohmann/json.hpp"
         ],
-    )
+    ),
+    Dependency(
+        "pevents",
+        [
+            THIRDPARTY_DIR / "pevents.h",
+            THIRDPARTY_DIR / "pevents.hpp",
+            THIRDPARTY_DIR / "pevents.cpp",
+        ],
+        [
+            "https://raw.githubusercontent.com/aholzinger/pevents/master/src/pevents.h",
+            "https://raw.githubusercontent.com/aholzinger/pevents/master/src/pevents.hpp",
+            "https://raw.githubusercontent.com/aholzinger/pevents/master/src/pevents.cpp",
+        ],
+    ),
 ]
 
 
