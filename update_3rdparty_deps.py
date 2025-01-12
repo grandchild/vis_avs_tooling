@@ -119,16 +119,16 @@ def do_update(dependency):
 def main(argv: list[str]) -> int:
     check_only: bool = "check" in argv
     dont_ask: bool = "run" in argv and not check_only
-    num_updates_check_mode: int = 0  # stays zero if not in check_only mode
+    num_updates_check_mode_exitcode: int = 0  # stays zero if not in check_only mode
     for dep in check_dependencies(quiet=check_only or dont_ask):
         if check_only:
             for update in dep.updates:
                 print(update.destination)
-                num_updates_check_mode += 1
+                num_updates_check_mode_exitcode += 1
         else:
             if dont_ask or input(f"Update {dep.name}? ")[:1].lower() == "y":
                 do_update(dep)
-    return num_updates_check_mode
+    return num_updates_check_mode_exitcode
 
 
 if __name__ == "__main__":
