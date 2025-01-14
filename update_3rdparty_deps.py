@@ -290,11 +290,13 @@ def create_patch(dep: Dependency, patch_filename: str, quiet: bool):
                 file=sys.stderr,
             )
         # "--- /tmp/tmp01234567/foo/bar"  ->  "--- foo/bar"
-        patch_content += "\n" + diff_proc.stdout.replace(dep.tmpdir.name + "/", "")
+        patch_content += "\n" + diff_proc.stdout.replace("+++ ", "+++ b/").replace(
+            dep.tmpdir.name, "a"
+        )
     patch_file = THIRDPARTY_DIR / patch_filename
     if not quiet:
         print(f"Creating patch {patch_file.absolute()}")
-    patch_file.write_text(patch_content.strip())
+    patch_file.write_text(patch_content.strip() + "\n")
 
 
 def update_patch_menu(name: str, dont_ask: bool) -> str:
