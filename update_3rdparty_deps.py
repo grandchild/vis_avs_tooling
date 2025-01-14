@@ -199,7 +199,7 @@ def download_remote_files(dep: Dependency, tmpdir: Path, quiet: bool) -> list[Pa
 
 def apply_patches(dep: Dependency, tmpdir: Path, quiet: bool):
     # patch file appended to command below
-    patch_cmd = ["patch", "-s", "-p1", "-d", str(tmpdir), "-i"]
+    patch_cmd = ["patch", "--silent", "--strip=1", "--directory", str(tmpdir), "-i"]
     if not dep.custom_patches:
         return
     for patch in dep.custom_patches:
