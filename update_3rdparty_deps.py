@@ -225,6 +225,13 @@ def check_dependencies(quiet: bool = False) -> Iterator[Dependency]:
         dep.updates = []
         if dep.custom_patches:
             apply_patches(dep, tmpdir, quiet)
+        if len(dep.local_files) != len(dep.remote_files):
+            print(
+                f"Error checking {dep.name}: different number of local_files and"
+                f" remote_files: {len(dep.local_files)} vs. {len(dep.remote_files)}",
+                file=sys.stderr,
+            )
+            continue
         for local_file, upstream_file in zip(dep.local_files, upstream_files):
             show_diff = True
             try:
