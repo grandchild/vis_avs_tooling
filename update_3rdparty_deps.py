@@ -324,7 +324,7 @@ def main(argv: list[str]) -> int:
             match update_patch_menu(dep.name, dont_ask):
                 case "u":
                     do_update(dep)
-                case "s":
+                case "p":
                     name = ""
                     while not name:
                         name = input("Patch name: ")
