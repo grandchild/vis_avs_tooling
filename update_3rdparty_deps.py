@@ -149,6 +149,10 @@ DEPS = [
             "https://raw.githubusercontent.com/justinfrankel/WDL/master/WDL/wdlcstring.h",
             "https://raw.githubusercontent.com/justinfrankel/WDL/master/WDL/wdltypes.h",
         ],
+        [
+            THIRDPARTY_DIR / "WDL-EEL2/eel2-enable-eel1-compat-mode.patch",
+            THIRDPARTY_DIR / "WDL-EEL2/eel2-add-pre-post-compile-hooks.patch",
+        ],
     ),
     Dependency(
         "stb_image",
