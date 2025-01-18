@@ -97,6 +97,9 @@ DEPS = [
             THIRDPARTY_DIR / "WDL-EEL2/utf8_extended.h",
             THIRDPARTY_DIR / "WDL-EEL2/wdlcstring.h",
             THIRDPARTY_DIR / "WDL-EEL2/wdltypes.h",
+            # The WDL repo has no license file, but the WDL-EEL2 directory is licensed
+            # with the zlib license, as per: https://www.cockos.com/wdl. The license
+            # file is added manually to the repo.
         ],
         [
             "https://raw.githubusercontent.com/justinfrankel/WDL/master/WDL/eel2/asm-nseel-aarch64-gcc.c",
@@ -156,15 +159,25 @@ DEPS = [
     ),
     Dependency(
         "stb_image",
-        [THIRDPARTY_DIR / "stb_image.h"],
-        ["https://raw.githubusercontent.com/nothings/stb/master/stb_image.h"],
+        [
+            THIRDPARTY_DIR / "stb_image.h",
+            THIRDPARTY_DIR / "LICENSE.stb_image.txt",
+        ],
+        [
+            "https://raw.githubusercontent.com/nothings/stb/master/stb_image.h",
+            "https://raw.githubusercontent.com/nothings/stb/master/LICENSE",
+        ],
         [THIRDPARTY_DIR / "stb_image.h-unused-png-chunk.patch"],
     ),
     Dependency(
         "json.hpp",
-        [THIRDPARTY_DIR / "json.h"],
         [
-            "https://raw.githubusercontent.com/nlohmann/json/master/single_include/nlohmann/json.hpp"
+            THIRDPARTY_DIR / "json.h",
+            THIRDPARTY_DIR / "LICENSE.json.txt",
+        ],
+        [
+            "https://raw.githubusercontent.com/nlohmann/json/master/single_include/nlohmann/json.hpp",
+            "https://raw.githubusercontent.com/nlohmann/json/master/LICENSE.MIT",
         ],
     ),
     Dependency(
@@ -173,11 +186,13 @@ DEPS = [
             THIRDPARTY_DIR / "pevents.h",
             THIRDPARTY_DIR / "pevents.hpp",
             THIRDPARTY_DIR / "pevents.cpp",
+            THIRDPARTY_DIR / "LICENSE.pevents.txt",
         ],
         [
             "https://raw.githubusercontent.com/aholzinger/pevents/master/src/pevents.h",
             "https://raw.githubusercontent.com/aholzinger/pevents/master/src/pevents.hpp",
             "https://raw.githubusercontent.com/aholzinger/pevents/master/src/pevents.cpp",
+            "https://raw.githubusercontent.com/aholzinger/pevents/master/LICENSE",
         ],
         [THIRDPARTY_DIR / "pevents.cpp-wait-for-multiple-events-return-signal.patch"],
     ),
