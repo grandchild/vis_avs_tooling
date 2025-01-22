@@ -155,6 +155,7 @@ DEPS = [
         [
             THIRDPARTY_DIR / "WDL-EEL2/eel2-enable-eel1-compat-mode.patch",
             THIRDPARTY_DIR / "WDL-EEL2/eel2-add-pre-post-compile-hooks.patch",
+            THIRDPARTY_DIR / "WDL-EEL2/eel2-asm-x86-gcc-remove-gcc-vs-clang-ifdefs.patch",
         ],
     ),
     Dependency(
