@@ -357,7 +357,7 @@ def main(argv: list[str]) -> int:
                     name = ""
                     while not name:
                         name = input("Patch name: ")
-                    name = name.removesuffix(".patch").removesuffix(".diff")
+                        name = name.removesuffix(".patch").removesuffix(".diff")
                     create_patch(dep, name + ".patch", quiet=False)
                 case "i":
                     continue
