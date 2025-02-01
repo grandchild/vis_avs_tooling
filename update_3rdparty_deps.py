@@ -299,6 +299,7 @@ def create_patch(dep: Dependency, patch_filename: str, quiet: bool):
         print(f"Error creating patch for {dep.name}: no tmpdir", file=sys.stderr)
         return
     for update in dep.updates:
+        dest_filename = update.destination.relative_to(THIRDPARTY_DIR)
         # Flags recommended in "man patch(1) > Notes for Patch Senders"
         diff_cmd = [
             "diff",
@@ -306,8 +307,10 @@ def create_patch(dep: Dependency, patch_filename: str, quiet: bool):
             "--text",
             "--unified",
             "--recursive",
+            f"--label=a/{dest_filename}",
+            f"--label=b/{dest_filename}",
             str(update.source),
-            str(update.destination.relative_to(THIRDPARTY_DIR)),
+            str(dest_filename),
         ]
         diff_proc = subprocess.run(
             diff_cmd, cwd=THIRDPARTY_DIR, capture_output=True, text=True
@@ -318,10 +321,7 @@ def create_patch(dep: Dependency, patch_filename: str, quiet: bool):
                 f"\n{' '.join([str(s) for s in diff_cmd])}: {diff_proc.stderr}",
                 file=sys.stderr,
             )
-        # "--- /tmp/tmp01234567/foo/bar"  ->  "--- foo/bar"
-        patch_content += "\n" + diff_proc.stdout.replace("+++ ", "+++ b/").replace(
-            dep.tmpdir.name, "a"
-        )
+        patch_content += "\n" + diff_proc.stdout
     patch_file = THIRDPARTY_DIR / patch_filename
     if not quiet:
         print(f"Creating patch {patch_file.absolute()}")
